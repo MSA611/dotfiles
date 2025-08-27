@@ -4,6 +4,8 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			java = { "clang-format" },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
 			python = { "isort", "black" },
 			rust = { "rustfmt", lsp_format = "fallback" },
 			--perttier
