@@ -22,3 +22,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format()
 	end,
 })
+
+require("toggleterm").setup({
+	direction = "float",
+	float_opts = {
+		border = "curved", -- You can choose "single", "double", "curved", "shadow" or "none"
+	},
+})
