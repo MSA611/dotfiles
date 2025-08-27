@@ -13,6 +13,7 @@ require("conform").setup({ --for formatters
 		css = { "prettier" },
 		java = { "clang-format" },
 		c = { "clang-format" },
+		cpp = { "clang-format" },
 		-- add other filetypes as needed
 	},
 })
