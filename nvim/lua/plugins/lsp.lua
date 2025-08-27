@@ -104,6 +104,24 @@ local M = {
 				gopls = {},
 				pyright = {},
 				rust_analyzer = {},
+				tailwindcss = {
+					filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+					settings = {
+						tailwindCSS = {
+							classAttributes = { "class", "className", "classList", "ngClass" },
+							lint = {
+								cssConflict = "warning",
+								invalidApply = "error",
+								invalidConfigPath = "error",
+								invalidScreen = "error",
+								invalidTailwindDirective = "error",
+								invalidVariant = "error",
+								recommendedVariantOrder = "warning",
+							},
+							validate = true,
+						},
+					},
+				},
 			}
 
 			for server, config in pairs(local_servers) do
@@ -141,6 +159,25 @@ local M = {
 				-- pyright = {},
 
 				-- rust_analyzer = {},
+
+				tailwindcss = {
+					filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "svelte" },
+					settings = {
+						tailwindCSS = {
+							classAttributes = { "class", "className", "classList", "ngClass" },
+							lint = {
+								cssConflict = "warning",
+								invalidApply = "error",
+								invalidConfigPath = "error",
+								invalidScreen = "error",
+								invalidTailwindDirective = "error",
+								invalidVariant = "error",
+								recommendedVariantOrder = "warning",
+							},
+							validate = true,
+						},
+					},
+				},
 			}
 
 			require("mason").setup()

@@ -7,10 +7,10 @@ return {
 				theme = "onedark_dark",
 				highlights = {
 					-- OneDark Pro DARK theme completion menu with yellow selector
+
 					CmpPmenu = { bg = "#1e2127", fg = "#abb2bf" },
 					CmpSel = { bg = "#e5c07b", fg = "#1e2127", bold = true },
 					CmpDoc = { bg = "#1e2127", fg = "#abb2bf" },
-
 					-- OneDark Pro colors for completion types
 					CmpItemKindSnippet = { fg = "#e06c75" },
 					CmpItemKindKeyword = { fg = "#c678dd" },
