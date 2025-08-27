@@ -289,6 +289,9 @@ local M = {
 						luasnip.lsp_expand(args.body) -- For `luasnip` users.
 					end,
 				},
+				view = {
+					entries = "custom", -- can be "custom", "wildmenu" or "native"
+				},
 				mapping = {
 					["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 					["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -335,14 +338,16 @@ local M = {
 					}),
 				},
 				formatting = {
-					fields = { "abbr", "kind" },
+					fields = { "kind", "abbr", "menu" },
 					format = function(entry, vim_item)
-						local kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-						local abbr = vim_item.abbr
-						local space_padding = string.rep(" ", 2)
-						vim_item.abbr = abbr
-						vim_item.kind = space_padding .. kind
-
+						local kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
+						vim_item.kind = kind
+						vim_item.menu = ({
+							nvim_lsp = "[LSP]",
+							luasnip = "[Snippet]",
+							buffer = "[Buffer]",
+							path = "[Path]",
+						})[entry.source.name]
 						return vim_item
 					end,
 				},
@@ -358,12 +363,13 @@ local M = {
 				},
 				window = {
 					completion = {
-						border = "rounded",
-						winhighlight = "Normal:CmpNormal",
+						border = "none",
+						winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:None",
+						scrollbar = false,
 					},
 					documentation = {
-						border = "rounded",
-						winhighlight = "Normal:CmpNormal",
+						border = "none",
+						winhighlight = "Normal:CmpDoc",
 					},
 				},
 				experimental = {
